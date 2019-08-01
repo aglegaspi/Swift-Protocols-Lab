@@ -26,17 +26,54 @@ Then create an initializer for the class and create two `Human` instances.
 b. Make the `Human` class adopt the CustomStringConvertible protocol. Then print both of your previously initialized
 `Human` objects.
 
-c. Make the `Human` class adopt the Equatable protocol. Two instances of `Human` should be considered equal
-if their names and ages are identical to one another. Print the result of a boolean expression
-evaluating whether or not your two previously initialized `Human` objects are equal to eachother
-(using ==). Then print the result of a boolean expression evaluating whether or not your two
-previously initialized `Human` objects are not equal to eachother (using !=).
+c. Make the `Human` class adopt the Equatable protocol. Two instances of `Human` should be considered equal if their names and ages are identical to one another. Print the result of a boolean expression evaluating whether or not your two previously initialized `Human` objects are equal to eachother (using ==). Then print the result of a boolean expression evaluating whether or not your two previously initialized `Human` objects are not equal to eachother (using !=).
 
 d. Make the `Human` class adopt the `Comparable` protocol. One `Human` is greater than another `Human` if its age is bigger. Create another
 three instances of a `Human`, then create an array called people of type [`Human`] with all of the
 `Human` objects that you have initialized.
 
 Create a new array called sortedPeople of type [`Human`] that is the people array sorted by age.
+
+```
+class Human: CustomStringConvertible, Equatable, Comparable {
+    static func < (lhs: Human, rhs: Human) -> Bool {
+        return lhs.age < rhs.age
+    }
+    
+    static func == (lhs: Human, rhs: Human) -> Bool {
+        return  lhs.name == rhs.name && lhs.age == lhs.age
+    }
+    
+    
+    var description: String {
+        get {
+            return "Their name is \(name) and are \(age) years old."
+        }
+    }
+    
+    var name: String
+    var age: Int
+    
+    init(name: String,age: Int) {
+        self.name = name
+        self.age = age
+    }
+    
+}
+
+let american = Human(name: "Alex", age: 36)
+let canadian = Human(name: "Alix", age: 33)
+let filipino = Human(name: "Xander", age: 1)
+
+print(american)
+print(american == canadian)
+print(american < canadian)
+
+let arrOfHumans: [Human] = [american,canadian,filipino]
+let sortedHumans = arrOfHumans.sorted(by: {$0 < $1})
+print(sortedHumans)
+
+```
 
 </br> </br>
 
@@ -54,6 +91,8 @@ then call drive().
 c. Define a Bike struct that implements the `Vehicle` protocol. `numberOfWheels` should return a value of 2,
 and drive() should print "Begin pedaling!". Create an instance of Bike, print its number of wheels,
 then call drive().
+
+
 
 </br> </br>
 
