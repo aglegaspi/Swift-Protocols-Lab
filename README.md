@@ -137,12 +137,24 @@ Give your structs some properties and have them conform to the appropriate proto
 
 ```swift
 protocol Bird {
- var name: String { get }
- var canFly: Bool { get }
+var name: String { get }
+var canFly: Bool { get }
 }
 
 protocol Flyable {
- var airspeedVelocity: Double { get }
+var airspeedVelocity: Double { get }
+}
+
+struct Penguin: Bird, Flyable {
+var name: String
+var canFly: Bool = false
+var airspeedVelocity: Double
+}
+
+struct Eagle: Bird, Flyable {
+var name: String
+var canFly: Bool = true
+var airspeedVelocity: Double
 }
 ```
 
