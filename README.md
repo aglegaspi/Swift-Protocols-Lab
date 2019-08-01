@@ -15,7 +15,7 @@
 
 > Questions adapted from [Swift student lessons: 4 - Tables and Persistence -> 1 - Protocols](https://developer.apple.com/go/?id=app-dev-swift-student)
 
-## Question 1
+## Question 1 √
 
 a. Create a `Human` class with two properties:
 - `name` of type String
@@ -78,7 +78,7 @@ print(sortedHumans)
 </br> </br>
 
 
-## Question 2
+## Question 2 √
 
 a. Create a protocol called `Vehicle` with two requirements:
 - a nonsettable `numberOfWheels` property of type Int,
@@ -130,7 +130,7 @@ print(superBicycl.drive())
 </br> </br>
 
 
-## Question 3
+## Question 3 √
 // Given the below two protocols, create a struct for penguin(a flightless bird) and an eagle.
 
 Give your structs some properties and have them conform to the appropriate protocols.
@@ -160,7 +160,7 @@ var airspeedVelocity: Double
 
 </br> </br>
 
-## Question 4
+## Question 4 √
 
 a. Create a protocol called `Transformation`.  The protocol should specify a mutating method called transform
 
@@ -185,7 +185,7 @@ bruceBanner.transform()  // notHulk
 </br> </br>
 
 
-## Question 5
+## Question 5 √
 
 a. Create a protocol called `Communication`
 
@@ -200,6 +200,34 @@ e. `message` should return a unique message for each animal when talk is called.
 f. Put an instance of each of your classes in an array.
 
 g. Iterate over the array and have them print their `message` property
+
+```
+protocol Communication {
+    var message: String {get}
+}
+
+class Cat: Communication {
+    var message: String { return "Don't Look At Me. Don't Touch Me, but Feed Me. Thank You." }
+}
+
+class Dog: Communication {
+    var message: String { return "GIVE ME ATTENTION! Even if I may or may have not peed on your bed." }
+}
+
+class Cow: Communication {
+    var message: String { return "My kind are abused and killed more than humans daily" }
+}
+
+let cat = Cat()
+let dog = Dog()
+let cow = Cow()
+
+let animals: [Communication] = [cat,dog,cow]
+
+for i in animals {
+    print(i.message)
+}
+```
 
 
 ## Question 6
