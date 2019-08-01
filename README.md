@@ -84,15 +84,48 @@ a. Create a protocol called `Vehicle` with two requirements:
 - a nonsettable `numberOfWheels` property of type Int,
 - a function called drive().
 
-b. Define a `Car` struct that implements the `Vehicle` protocol. `numberOfWheels` should return a value of 4,
-and drive() should print "Vroom, vroom!" Create an instance of `Car`, print its number of wheels,
+b. Define a `Car` struct that implements the `Vehicle` protocol. `numberOfWheels` should return a value of 4, and drive() should print "Vroom, vroom!" 
+
+Create an instance of `Car`, print its number of wheels,
 then call drive().
 
 c. Define a Bike struct that implements the `Vehicle` protocol. `numberOfWheels` should return a value of 2,
 and drive() should print "Begin pedaling!". Create an instance of Bike, print its number of wheels,
 then call drive().
 
+```
+protocol Vehicle {
+    var numberOfWheels: Int { get }
+    
+    func drive() -> String
+}
 
+struct Car: Vehicle {
+    
+    let numberOfWheels: Int = 4
+    
+    func drive() -> String {
+        return "Vroom Vroom"
+    }
+}
+
+var toyotaCelica = Car()
+print(toyotaCelica.numberOfWheels)
+print(toyotaCelica.drive())
+
+
+struct Bike: Vehicle {
+    let numberOfWheels: Int = 2
+    
+    func drive() -> String {
+        return "Put the pedal to the metal!"
+    }
+}
+var superBicycl = Bike()
+print(superBicycl.numberOfWheels)
+print(superBicycl.drive())
+
+```
 
 </br> </br>
 
